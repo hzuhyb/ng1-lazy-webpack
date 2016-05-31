@@ -2,16 +2,20 @@
 
 在此分享一个基于 `angularjs + webpack + ocLazyload` 的 **Angularjs 异步模块加载项目模板**。
 ---
-## Dependences
+## 依赖
 
 - node^6.2.0
 - npm^3.8.9
 - angular^1.4.8
 
-## Getting Started
+## 运行项目，进行开发
 
 - npm install
 - npm run dev
+
+## 执行生产环境代码打包
+
+- npm run deploy
 
 ## 项目文件夹结构
 
