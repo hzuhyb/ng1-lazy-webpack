@@ -21,4 +21,4 @@
 
 # 详细说明，后续补充
 
-[ocLazyLoad]: https://oclazyload.readme.io/docs "angular 下的资源异步加载框架"
+angular 下的资源异步加载框架 [ocLazyLoad]: https://oclazyload.readme.io/docs

@@ -1,12 +1,15 @@
 var webpack = require('webpack');
+var path = require('path');
+var node_modules_dir = path.resolve(__dirname, 'node_modules');
 var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 var config = {
     entry: {
-        app: './app/core/bootstrap.js'
+        app: path.resolve(__dirname, 'app/core/bootstrap.js'),
+        vendor: ['angular', 'angular-ui-router', 'oclazyload']
     },
     output: {
-        path: './dist',
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -14,27 +17,27 @@ var config = {
             {
                 test: /\.js$/,
                 loader: 'babel',
-                exclude: /node_modules/
+                exclude: [node_modules_dir]
             },
             {
                 test: /\.css$/,
                 loader: 'style!css',
-                exclude: /node_modules/
+                exclude: [node_modules_dir]
             },
             {
                 test: /\.scss$/,
                 loader: 'style!css!sass',
-                exclude: /node_modules/
+                exclude: [node_modules_dir]
             },
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url?limit=25000',
-                exclude: /node_modules/
+                exclude: [node_modules_dir]
             },
             {
                 test: /\.html$/,
                 loader: 'raw',
-                exclude: /node_modules/
+                exclude: [node_modules_dir]
             }
         ]
     },
@@ -48,11 +51,11 @@ var config = {
             name: 'vendor',
             filename: 'vendor.bundle.js'
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                mangle: false
-            }
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     // mangle: {
+        //     //     mangle: false
+        //     // }
+        // }),
          new webpack.DefinePlugin({
           ON_DEMO: process.env.NODE_ENV === 'demo'
         })

@@ -2,7 +2,8 @@ var webpack = require('webpack');
 
 var config = {
     entry: {
-        app: './app/core/bootstrap.js'
+        app: './app/core/bootstrap.js',
+        vendor: ['angular', 'angular-ui-router', 'oclazyload']
     },
     output: {
         path: './build',

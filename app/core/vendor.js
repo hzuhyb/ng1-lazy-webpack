@@ -3,7 +3,7 @@ module.exports = function () {
     require('../index.scss');
     
     /* JS */
-    require('angular');
-    require('angular-ui-router');
-    require('oclazyload');
+    // require('angular');
+    // require('angular-ui-router');
+    // require('oclazyload');
 };
