@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
-    "deploy": "webpack -p --config webpack.production.config.js"
+    "deploy": "webpack --config webpack.production.config.js"
   },
   "author": "huangtubiao",
   "license": "ISC",

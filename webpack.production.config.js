@@ -13,33 +13,27 @@ var config = {
         filename: 'bundle.js'
     },
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel',
-                exclude: [node_modules_dir]
-            },
-            {
-                test: /\.css$/,
-                loader: 'style!css',
-                exclude: [node_modules_dir]
-            },
-            {
-                test: /\.scss$/,
-                loader: 'style!css!sass',
-                exclude: [node_modules_dir]
-            },
-            {
-                test: /\.(png|jpg)$/,
-                loader: 'url?limit=25000',
-                exclude: [node_modules_dir]
-            },
-            {
-                test: /\.html$/,
-                loader: 'raw',
-                exclude: [node_modules_dir]
-            }
-        ]
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel',
+            exclude: [node_modules_dir]
+        }, {
+            test: /\.css$/,
+            loader: 'style!css',
+            exclude: [node_modules_dir]
+        }, {
+            test: /\.scss$/,
+            loader: 'style!css!sass',
+            exclude: [node_modules_dir]
+        }, {
+            test: /\.(png|jpg)$/,
+            loader: 'url?limit=25000',
+            exclude: [node_modules_dir]
+        }, {
+            test: /\.html$/,
+            loader: 'raw',
+            exclude: [node_modules_dir]
+        }]
     },
 
     plugins: [
@@ -51,13 +45,13 @@ var config = {
             name: 'vendor',
             filename: 'vendor.bundle.js'
         }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     // mangle: {
-        //     //     mangle: false
-        //     // }
-        // }),
-         new webpack.DefinePlugin({
-          ON_DEMO: process.env.NODE_ENV === 'demo'
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.DefinePlugin({
+            ON_DEMO: process.env.NODE_ENV === 'demo'
         })
     ]
 };
