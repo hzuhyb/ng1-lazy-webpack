@@ -37,9 +37,9 @@ var config = {
     },
 
     plugins: [
-        // new ngAnnotatePlugin({
-        //    add: true
-        // }),
+        new ngAnnotatePlugin({
+           add: true
+        }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',

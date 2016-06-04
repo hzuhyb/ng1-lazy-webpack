@@ -18,6 +18,7 @@ function homeRouting($urlRouterProvider, $stateProvider) {
                                 name: module.name
                             });
                             resolve(module.controller);
+                            resolve(require('./home.scss'));
                         });
                     });
                 }

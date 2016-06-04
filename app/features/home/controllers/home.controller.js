@@ -1,8 +1,9 @@
 'use strict';
 
-class HomeController {
-    constructor() {}
-}
 
 export default angular.module('home.controller', [])
-    .controller('HomeController', HomeController);
+    .controller('HomeController', function($scope) {
+        $scope.showInfo = function() {
+            alert('这是homeAbout页面。');
+        }
+    });
